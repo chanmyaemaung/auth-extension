@@ -12,9 +12,25 @@ export class AuthenticationController {
     return this.authService.signUp(signUpDto);
   }
 
+  // Approach with JWT in response body
   @HttpCode(HttpStatus.OK)
   @Post('sign-in')
   signIn(@Body() signInDto: SignInDto) {
     return this.authService.signIn(signInDto);
   }
+
+  // Approach with httpOnly cookie
+  /* @HttpCode(HttpStatus.OK)
+  @Post('sign-in')
+  async signIn(
+    @Res({ passthrough: true }) response: Response,
+    @Body() signInDto: SignInDto,
+  ) {
+    const accessToken = await this.authService.signIn(signInDto);
+    response.cookie('accessToken', accessToken, {
+      secure: true,
+      httpOnly: true,
+      sameSite: true,
+    });
+  } */
 }
