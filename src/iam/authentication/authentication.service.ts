@@ -11,8 +11,8 @@ import { User } from 'src/users/entities/user.entity';
 import { Repository } from 'typeorm';
 import jwtConfig from '../config/jwt.config';
 import { HashingService } from '../hashing/hashing.service';
-import { SignInDto } from './dto/sign-in.dto/sign-in.dto';
-import { SignUpDto } from './dto/sign-up.dto/sign-up.dto';
+import { SignInDto } from './dto/sign-in.dto';
+import { SignUpDto } from './dto/sign-up.dto';
 
 @Injectable()
 export class AuthenticationService {
